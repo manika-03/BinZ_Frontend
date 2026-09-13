@@ -20,6 +20,7 @@
 - Service dropdown FAQ drawer target: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-f9a67dff-647f-478f-9394-324bc99b2006.png`
 - Dropdown overlap correction reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-928564e0-a345-4504-83c8-f494bf630a65.png`
 - Safety guidance section reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-7957f488-f820-4785-a0a2-fd6094ea772b.png`
+- Safety guidance pictorial timeline reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-922e0668-d954-47e9-bcf9-736ab637b627.png`
 - Page style examples: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-bb8fd4fd-26a7-4479-8f0a-43c55c7779d7.png`, `C:\Users\priya\AppData\Local\Temp\codex-clipboard-2b3144e5-0942-4847-a6f9-1e2b23ab4b22.png`
 
 **Implementation Evidence**
@@ -69,6 +70,9 @@
 - Safety guidance responsive check: desktop and mobile headless Chrome captures were reviewed; the section keeps the existing Learn page aesthetic and stacks into one column on narrow screens.
 - Safety guidance placement check: the section now appears below the Refurbish/Rebuild/Reuse cards and the green `Small choices add up` next-step strip.
 - Safety guidance fill check: the formerly empty top-right area now contains a BinZ safety-prep panel, and the hazard grid now includes six pictorial points so the cards do not read as sparse.
+- Safety guidance pictorial redesign check: the section now uses a centered reference-style intro, a numbered vertical safety story, alternating pictorial hazard scenes, warning badges, and a BinZ safety note for each hazard.
+- Safety guidance content coverage check: the infographic includes battery heat/leakage, CRT/display risk, traceability loss, unsafe dismantling, short-circuit sparks and protective handling gaps.
+- Current iteration verification note: production build passed and the local dev server responded with HTTP 200; live browser capture was unavailable from the in-app/Chrome tooling in this turn.
 - Browser console errors checked: none.
 
 **Follow-up Polish**
@@ -102,6 +106,7 @@
 - Added a Safety Guidance section to the Learn page with pictorial hazard cards and a BinZ safe-flow panel.
 - Moved the Safety Guidance section below the Refurbish/Rebuild/Reuse learning cards and next-step strip.
 - Filled the Safety Guidance empty spaces with a safety-prep visual panel and two additional hazard points.
+- Redesigned the Safety Guidance section as a reference-style pictorial timeline with numbered hazard steps and BinZ safety responses.
 - Preserved the original CO2 tracking form and charts in the Impact section.
 - Rebuilt `dist` and copied runtime image assets.
 

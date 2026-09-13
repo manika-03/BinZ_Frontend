@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ArrowLeft,
   BatteryWarning,
-  Cable,
+  ClipboardCheck,
   FileCheck2,
   Flame,
   HardHat,
@@ -10,10 +10,13 @@ import {
   MailCheck,
   MonitorX,
   PackageCheck,
+  Recycle,
   RefreshCw,
   Route,
+  ScanLine,
   ShieldAlert,
   ShieldCheck,
+  TriangleAlert,
   Wrench,
 } from 'lucide-react';
 
@@ -41,33 +44,51 @@ const principles = [
 const safetyHazards = [
   {
     icon: BatteryWarning,
+    accent: Flame,
+    number: '01',
     title: 'Battery heat and leakage',
     text: 'Piercing, bending or mixing loose batteries can lead to swelling, heat, smoke and chemical leaks.',
+    safe: 'BinZ separates battery-bearing devices during pickup so they are handled with extra care.',
   },
   {
     icon: MonitorX,
+    accent: TriangleAlert,
+    number: '02',
     title: 'CRT and display risk',
     text: 'Older screens and display parts can contain heavy glass, coatings and sharp fragments that need careful handling.',
+    safe: 'Ticketed handling keeps fragile displays visible before they reach the recycling facility.',
   },
   {
     icon: Laptop,
+    accent: ScanLine,
+    number: '03',
     title: 'Device traceability loss',
     text: 'Phones and laptops mixed with regular scrap can lose their ticket trail, data-care step and facility visibility.',
+    safe: 'Every request gets a tracking ID, status checkpoints and report-ready proof.',
   },
   {
     icon: ShieldAlert,
+    accent: HardHat,
+    number: '04',
     title: 'Unsafe dismantling',
     text: 'Opening appliances without tools, PPE or sorting checks can expose wires, dust, sharp edges and fragile parts.',
+    safe: 'BinZ guides the item from doorstep pickup to facility processing instead of casual dismantling.',
   },
   {
     icon: Flame,
+    accent: BatteryWarning,
+    number: '05',
     title: 'Short-circuit sparks',
     text: 'Wet cables, mixed chargers and damaged boards can spark when they are packed or crushed together.',
+    safe: 'Separated routing reduces mixed-load risk before material recovery starts.',
   },
   {
     icon: HardHat,
+    accent: ClipboardCheck,
+    number: '06',
     title: 'No protective handling',
     text: 'Collectors need gloves, careful lifting and separated bins before heavy or fragile e-waste is moved.',
+    safe: 'Service support, FAQ guidance and checkpoints keep the process guided and accountable.',
   },
 ];
 
@@ -78,72 +99,60 @@ const binzSafetyFlow = [
   { icon: FileCheck2, label: 'Report ready', text: 'The recycling report button is prepared for backend PDF download.' },
 ];
 
-const safetyHighlights = [
-  { icon: BatteryWarning, label: 'Battery isolation' },
-  { icon: Cable, label: 'Cable and part sorting' },
-  { icon: ShieldCheck, label: 'Guided handoff' },
-];
-
 function SafetyGuidance() {
   return (
     <section className="safety-guidance" aria-labelledby="safety-guidance-title">
       <div className="safety-guidance-head">
-        <div className="safety-guidance-copy">
-          <p className="eyebrow">Safety guidance</p>
-          <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
-          <p>
-            E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
-            BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
-            FAQ support, responsible recycling updates and report-ready proof.
-          </p>
-        </div>
-        <aside className="safety-visual-panel" aria-label="BinZ safety preparation highlights">
-          <span className="safety-visual-main"><ShieldCheck size={38} aria-hidden="true" /></span>
-          <div>
-            <p className="eyebrow">Before processing</p>
-            <h3>Separate, label and route every sensitive item.</h3>
-          </div>
-          <div className="safety-visual-list">
-            {safetyHighlights.map(({ icon: Icon, label }) => (
-              <span className="safety-visual-item" key={label}>
-                <Icon size={18} aria-hidden="true" />
-                {label}
-              </span>
-            ))}
-          </div>
-        </aside>
+        <p className="eyebrow">Safety guidance</p>
+        <h2 id="safety-guidance-title">Know the hazard before it becomes a problem.</h2>
+        <p>
+          E-waste needs more than a regular scrap pickup. BinZ combines doorstep collection, generated tickets,
+          tracker checkpoints, FAQ support and recycling reports so risky items move through a safer, visible flow.
+        </p>
       </div>
 
-      <div className="safety-guidance-layout">
-        <div className="hazard-grid" aria-label="Common e-waste safety hazards">
-          {safetyHazards.map(({ icon: Icon, title, text }) => (
-            <article className="hazard-card" key={title}>
-              <span className="hazard-icon"><Icon size={28} aria-hidden="true" /></span>
+      <div className="safety-story" aria-label="Common e-waste hazards and BinZ safety guidance">
+        {safetyHazards.map(({ icon: Icon, accent: AccentIcon, number, title, text, safe }, index) => (
+          <article className={`safety-story-step ${index % 2 ? 'is-reverse' : ''}`} key={title}>
+            <div className="hazard-scene" aria-hidden="true">
+              <span className="hazard-warning"><TriangleAlert size={20} /></span>
+              <span className="hazard-scene-main"><Icon size={54} /></span>
+              <span className="hazard-scene-accent"><AccentIcon size={24} /></span>
+            </div>
+            <span className="safety-step-pin">{number}</span>
+            <div className="safety-step-copy">
+              <p className="eyebrow">What can go wrong</p>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <div className="safety-step-safe">
+                <ShieldCheck size={19} aria-hidden="true" />
+                <span>{safe}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <aside className="binz-safety-card" aria-label="How BinZ supports safer e-waste handling">
+        <div className="binz-safety-card-head">
+          <span className="binz-safety-icon"><Recycle size={34} aria-hidden="true" /></span>
+          <div>
+            <p className="eyebrow">BinZ safe flow</p>
+            <h3>Built to keep the process guided, visible and accountable.</h3>
+          </div>
+        </div>
+        <div className="safety-flow-list">
+          {binzSafetyFlow.map(({ icon: Icon, label, text }) => (
+            <div className="safety-flow-item" key={label}>
+              <span><Icon size={19} aria-hidden="true" /></span>
               <div>
-                <h3>{title}</h3>
+                <strong>{label}</strong>
                 <p>{text}</p>
               </div>
-            </article>
+            </div>
           ))}
         </div>
-
-        <aside className="binz-safety-card" aria-label="How BinZ supports safer e-waste handling">
-          <span className="binz-safety-icon"><ShieldCheck size={34} aria-hidden="true" /></span>
-          <p className="eyebrow">BinZ safe flow</p>
-          <h3>Built to keep the process guided, visible and accountable.</h3>
-          <div className="safety-flow-list">
-            {binzSafetyFlow.map(({ icon: Icon, label, text }) => (
-              <div className="safety-flow-item" key={label}>
-                <span><Icon size={19} aria-hidden="true" /></span>
-                <div>
-                  <strong>{label}</strong>
-                  <p>{text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </aside>
-      </div>
+      </aside>
     </section>
   );
 }
