@@ -1,5 +1,5 @@
 **Findings**
-- No P0/P1/P2 issues found for the requested ticket drawer opacity increase, Service navbar dropdown, larger tracker-page demo section, demo-first ordering, demo video section, recycling report CTA simplification, tracker-page navbar section routing, tracker heading font match, top-of-page tracker navigation, tracker page redesign, duplicate-logo removal, Service Hub button alignment, and tracker page navigation.
+- No P0/P1/P2 issues found for the requested safety guidance section, ticket drawer opacity increase, Service navbar dropdown, larger tracker-page demo section, demo-first ordering, demo video section, recycling report CTA simplification, tracker-page navbar section routing, tracker heading font match, top-of-page tracker navigation, tracker page redesign, duplicate-logo removal, Service Hub button alignment, and tracker page navigation.
 
 **Source Visual Truth**
 - Service Hub reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-9aa4753e-5f9b-4312-b2c1-ae79b727cb5d.png`
@@ -19,6 +19,7 @@
 - Service dropdown ticket drawer target: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-4e17aa11-c71a-4545-8781-60ede0270ca9.png`
 - Service dropdown FAQ drawer target: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-f9a67dff-647f-478f-9394-324bc99b2006.png`
 - Dropdown overlap correction reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-928564e0-a345-4504-83c8-f494bf630a65.png`
+- Safety guidance section reference: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-7957f488-f820-4785-a0a2-fd6094ea772b.png`
 - Page style examples: `C:\Users\priya\AppData\Local\Temp\codex-clipboard-bb8fd4fd-26a7-4479-8f0a-43c55c7779d7.png`, `C:\Users\priya\AppData\Local\Temp\codex-clipboard-2b3144e5-0942-4847-a6f9-1e2b23ab4b22.png`
 
 **Implementation Evidence**
@@ -26,6 +27,7 @@
 - E-waste tracker page URL: `http://localhost:5503/index.html#ewaste-tracker`
 - Viewport/state: desktop in-app browser, Service Hub visible with four cards and aligned CTAs. The `Open tracker` CTA navigates to a separate e-waste tracker page that uses a page hero/status layout instead of the earlier certificate-like framed panel.
 - Density normalization: none; comparison was evaluated at product-flow level because the request was to align the existing service controls and route the tracker to a new page.
+- Safety guidance page URL: `http://localhost:5503/#learn`
 
 **Required Fidelity Surfaces**
 - Fonts and typography: Uses the existing BinZ Inter/Instrument Serif stack. The new tracker uses strong headline hierarchy, compact status labels, and no text overlap in the captured desktop state.
@@ -62,6 +64,9 @@
 - Typography check: Browser-computed tracker hero heading is `60.16px`, Inter, `500`, `-4px` letter spacing and `60.16px` line-height on the verified desktop viewport.
 - Navigation position check: Clicking `Open tracker` from the Service Hub lands on `http://localhost:5503/index.html#ewaste-tracker` with `window.scrollY` equal to `0`; the tracker heading is visible near the top.
 - The original CO2 tracker heading is not present on the standalone e-waste tracker page.
+- Safety guidance content check: the Learn page includes a new `Safety guidance` section with pictorial cards for battery heat/leakage, CRT/display risk, device traceability loss and unsafe dismantling.
+- BinZ safety promise check: the section connects hazards to the existing product flow: doorstep pickup, e-waste tickets, facility tracking, FAQ support, responsible recycling updates and report-ready proof.
+- Safety guidance responsive check: desktop and mobile headless Chrome captures were reviewed; the section keeps the existing Learn page aesthetic and stacks into one column on narrow screens.
 - Browser console errors checked: none.
 
 **Follow-up Polish**
@@ -92,6 +97,7 @@
 - Added the supplied promotional MP4 as a muted autoplaying looping video in a separate `How BinZ works` demonstration section on the tracker page.
 - Moved the `How BinZ works` demonstration section to the top of the tracker page, before the e-waste tracking status content.
 - Increased the `How BinZ works` section scale with more padding, a wider video column, a larger video frame, and slightly larger copy.
+- Added a Safety Guidance section to the Learn page with pictorial hazard cards and a BinZ safe-flow panel.
 - Preserved the original CO2 tracking form and charts in the Impact section.
 - Rebuilt `dist` and copied runtime image assets.
 

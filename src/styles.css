@@ -415,6 +415,173 @@ textarea {
   line-height: 1.6;
 }
 
+.safety-guidance {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto 48px;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(234, 244, 230, 0.7)),
+    radial-gradient(circle at 90% 8%, rgba(234, 181, 78, 0.16), transparent 34%);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.safety-guidance-head {
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.safety-guidance-head h2 {
+  max-width: 720px;
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: clamp(30px, 3.8vw, 52px);
+  line-height: 1.02;
+}
+
+.safety-guidance-head > p:last-child {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.68;
+}
+
+.safety-guidance-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 0.58fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.hazard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hazard-card,
+.binz-safety-card {
+  min-width: 0;
+  border: 1px solid rgba(219, 227, 214, 0.78);
+  background: rgba(251, 250, 242, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.hazard-card {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 16px;
+  align-items: start;
+  min-height: 176px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.hazard-card > div,
+.safety-flow-item > div {
+  min-width: 0;
+}
+
+.hazard-icon,
+.binz-safety-icon,
+.safety-flow-item > span {
+  display: inline-grid;
+  place-items: center;
+  color: #f6ffed;
+}
+
+.hazard-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--pine), var(--moss));
+}
+
+.hazard-card h3,
+.binz-safety-card h3 {
+  margin: 0 0 9px;
+  color: var(--pine);
+  font-size: 19px;
+  line-height: 1.18;
+}
+
+.hazard-card p,
+.binz-safety-card p,
+.safety-flow-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.binz-safety-card {
+  padding: 24px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(23, 78, 42, 0.96), rgba(11, 124, 119, 0.9)),
+    var(--pine);
+  color: #f6ffed;
+}
+
+.binz-safety-icon {
+  width: 66px;
+  height: 66px;
+  margin-bottom: 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.binz-safety-card .eyebrow {
+  margin-bottom: 8px;
+  color: #cfe9c5;
+}
+
+.binz-safety-card h3 {
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.08;
+}
+
+.binz-safety-card p,
+.safety-flow-item p {
+  color: rgba(246, 255, 237, 0.78);
+}
+
+.safety-flow-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 24px;
+}
+
+.safety-flow-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.safety-flow-item > span {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.safety-flow-item strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #fff;
+  font-size: 14px;
+}
+
 .principles-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2333,7 +2500,8 @@ textarea:focus {
   .hero,
   .promo-panel,
   .about-band,
-  .tracker-page-hero {
+  .tracker-page-hero,
+  .safety-guidance-layout {
     grid-template-columns: 1fr;
   }
 
@@ -2655,10 +2823,71 @@ textarea:focus {
 
   .learn-page {
     padding: 92px 24px 48px;
+    overflow-x: hidden;
+  }
+
+  .learn-hero,
+  .safety-guidance,
+  .principles-grid,
+  .learn-next-step {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .learn-hero {
     margin-bottom: 34px;
+  }
+
+  .learn-hero h1 {
+    max-width: none;
+    font-size: clamp(34px, 9vw, 40px);
+    letter-spacing: -1.5px;
+  }
+
+  .learn-hero > p:last-child {
+    max-width: 100%;
+    font-size: 15px;
+  }
+
+  .safety-guidance {
+    margin-bottom: 28px;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .safety-guidance-head {
+    margin-bottom: 22px;
+  }
+
+  .safety-guidance-head h2 {
+    font-size: clamp(28px, 7.5vw, 32px);
+    letter-spacing: -1.5px;
+  }
+
+  .safety-guidance-head > p:last-child {
+    font-size: 14px;
+  }
+
+  .hazard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hazard-card {
+    grid-template-columns: 52px 1fr;
+    gap: 14px;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .hazard-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .binz-safety-card {
+    padding: 22px;
   }
 
   .principles-grid {

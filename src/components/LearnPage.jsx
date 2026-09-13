@@ -1,5 +1,19 @@
 import React from 'react';
-import { ArrowLeft, Hammer, RefreshCw, Wrench } from 'lucide-react';
+import {
+  ArrowLeft,
+  BatteryWarning,
+  FileCheck2,
+  HardHat,
+  Laptop,
+  MailCheck,
+  MonitorX,
+  PackageCheck,
+  RefreshCw,
+  Route,
+  ShieldAlert,
+  ShieldCheck,
+  Wrench,
+} from 'lucide-react';
 
 const principles = [
   {
@@ -22,6 +36,36 @@ const principles = [
   },
 ];
 
+const safetyHazards = [
+  {
+    icon: BatteryWarning,
+    title: 'Battery heat and leakage',
+    text: 'Piercing, bending or mixing loose batteries can lead to swelling, heat, smoke and chemical leaks.',
+  },
+  {
+    icon: MonitorX,
+    title: 'CRT and display risk',
+    text: 'Older screens and display parts can contain heavy glass, coatings and sharp fragments that need careful handling.',
+  },
+  {
+    icon: Laptop,
+    title: 'Device traceability loss',
+    text: 'Phones and laptops mixed with regular scrap can lose their ticket trail, data-care step and facility visibility.',
+  },
+  {
+    icon: ShieldAlert,
+    title: 'Unsafe dismantling',
+    text: 'Opening appliances without tools, PPE or sorting checks can expose wires, dust, sharp edges and fragile parts.',
+  },
+];
+
+const binzSafetyFlow = [
+  { icon: PackageCheck, label: 'Separate pickup', text: 'Doorstep booking keeps sensitive items out of mixed scrap.' },
+  { icon: MailCheck, label: 'E-waste ticket', text: 'Phones, laptops and batteries get a generated tracking ID.' },
+  { icon: Route, label: 'Facility route', text: 'Tracker checkpoints show pickup, processing and recovery status.' },
+  { icon: FileCheck2, label: 'Report ready', text: 'The recycling report button is prepared for backend PDF download.' },
+];
+
 export default function LearnPage() {
   return (
     <main className="learn-page">
@@ -35,6 +79,50 @@ export default function LearnPage() {
           Three practical habits can keep valuable electronics in use, reduce waste, and help build a cleaner future.
         </p>
       </section>
+
+      <section className="safety-guidance" aria-labelledby="safety-guidance-title">
+        <div className="safety-guidance-head">
+          <p className="eyebrow">Safety guidance</p>
+          <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
+          <p>
+            E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
+            BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
+            FAQ support, responsible recycling updates and report-ready proof.
+          </p>
+        </div>
+
+        <div className="safety-guidance-layout">
+          <div className="hazard-grid" aria-label="Common e-waste safety hazards">
+            {safetyHazards.map(({ icon: Icon, title, text }) => (
+              <article className="hazard-card" key={title}>
+                <span className="hazard-icon"><Icon size={28} aria-hidden="true" /></span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <aside className="binz-safety-card" aria-label="How BinZ supports safer e-waste handling">
+            <span className="binz-safety-icon"><ShieldCheck size={34} aria-hidden="true" /></span>
+            <p className="eyebrow">BinZ safe flow</p>
+            <h3>Built to keep the process guided, visible and accountable.</h3>
+            <div className="safety-flow-list">
+              {binzSafetyFlow.map(({ icon: Icon, label, text }) => (
+                <div className="safety-flow-item" key={label}>
+                  <span><Icon size={19} aria-hidden="true" /></span>
+                  <div>
+                    <strong>{label}</strong>
+                    <p>{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
       <section className="principles-grid" aria-label="The three circular technology principles">
         {principles.map(({ icon: Icon, title, text, action }) => (
           <article className="principle-card" key={title}>
