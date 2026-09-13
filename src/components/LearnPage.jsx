@@ -2,7 +2,10 @@ import React from 'react';
 import {
   ArrowLeft,
   BatteryWarning,
+  Cable,
   FileCheck2,
+  Flame,
+  HardHat,
   Laptop,
   MailCheck,
   MonitorX,
@@ -56,6 +59,16 @@ const safetyHazards = [
     title: 'Unsafe dismantling',
     text: 'Opening appliances without tools, PPE or sorting checks can expose wires, dust, sharp edges and fragile parts.',
   },
+  {
+    icon: Flame,
+    title: 'Short-circuit sparks',
+    text: 'Wet cables, mixed chargers and damaged boards can spark when they are packed or crushed together.',
+  },
+  {
+    icon: HardHat,
+    title: 'No protective handling',
+    text: 'Collectors need gloves, careful lifting and separated bins before heavy or fragile e-waste is moved.',
+  },
 ];
 
 const binzSafetyFlow = [
@@ -65,17 +78,40 @@ const binzSafetyFlow = [
   { icon: FileCheck2, label: 'Report ready', text: 'The recycling report button is prepared for backend PDF download.' },
 ];
 
+const safetyHighlights = [
+  { icon: BatteryWarning, label: 'Battery isolation' },
+  { icon: Cable, label: 'Cable and part sorting' },
+  { icon: ShieldCheck, label: 'Guided handoff' },
+];
+
 function SafetyGuidance() {
   return (
     <section className="safety-guidance" aria-labelledby="safety-guidance-title">
       <div className="safety-guidance-head">
-        <p className="eyebrow">Safety guidance</p>
-        <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
-        <p>
-          E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
-          BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
-          FAQ support, responsible recycling updates and report-ready proof.
-        </p>
+        <div className="safety-guidance-copy">
+          <p className="eyebrow">Safety guidance</p>
+          <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
+          <p>
+            E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
+            BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
+            FAQ support, responsible recycling updates and report-ready proof.
+          </p>
+        </div>
+        <aside className="safety-visual-panel" aria-label="BinZ safety preparation highlights">
+          <span className="safety-visual-main"><ShieldCheck size={38} aria-hidden="true" /></span>
+          <div>
+            <p className="eyebrow">Before processing</p>
+            <h3>Separate, label and route every sensitive item.</h3>
+          </div>
+          <div className="safety-visual-list">
+            {safetyHighlights.map(({ icon: Icon, label }) => (
+              <span className="safety-visual-item" key={label}>
+                <Icon size={18} aria-hidden="true" />
+                {label}
+              </span>
+            ))}
+          </div>
+        </aside>
       </div>
 
       <div className="safety-guidance-layout">
