@@ -70,13 +70,13 @@
 - Safety guidance responsive check: desktop and mobile headless Chrome captures were reviewed; the section keeps the existing Learn page aesthetic and stacks into one column on narrow screens.
 - Safety guidance placement check: the section now appears below the Refurbish/Rebuild/Reuse cards and the green `Small choices add up` next-step strip.
 - Safety guidance fill check: the formerly empty top-right area now contains a BinZ safety-prep panel, and the hazard grid now includes six pictorial points so the cards do not read as sparse.
-- Safety guidance pictorial redesign check: the section now uses a centered reference-style intro, a numbered vertical safety story, alternating pictorial hazard scenes, warning badges, and a BinZ safety note for each hazard.
-- Safety guidance content coverage check: the infographic includes battery heat/leakage, CRT/display risk, traceability loss, unsafe dismantling, short-circuit sparks and protective handling gaps.
-- Current iteration verification note: production build passed and the local dev server responded with HTTP 200; live browser capture was unavailable from the in-app/Chrome tooling in this turn.
+- Safety guidance pictorial redesign check: the section now uses a centered reference-style intro, handwritten side notes, a numbered vertical safety story, alternating image/component panels, status chips, material recovery cards, and BinZ safety proof notes.
+- Safety guidance content coverage check: the infographic includes protected pickup, item scanning, battery heat/leakage, CRT/display risk, short-circuit risk, facility checkpoints, PPE sorting, material recovery and report-ready proof.
+- Current iteration verification note: production build passed; the Learn page was opened in the in-app browser and the Safety Guidance section rendered with seven steps and two loaded image assets.
 - Browser console errors checked: none.
 
 **Follow-up Polish**
-- P3: Add a real device/photo asset if the tracker should feel more operational and less icon-led.
+- P3: Replace the current reusable BinZ recycling photos with custom e-waste-specific illustrations later if the project gets a dedicated illustration set.
 
 **Comparison History**
 - Initial implementation passed the requested build gate after interaction checks; no P0/P1/P2 fixes were required.
@@ -106,7 +106,7 @@
 - Added a Safety Guidance section to the Learn page with pictorial hazard cards and a BinZ safe-flow panel.
 - Moved the Safety Guidance section below the Refurbish/Rebuild/Reuse learning cards and next-step strip.
 - Filled the Safety Guidance empty spaces with a safety-prep visual panel and two additional hazard points.
-- Redesigned the Safety Guidance section as a reference-style pictorial timeline with numbered hazard steps and BinZ safety responses.
+- Redesigned the Safety Guidance section as a reference-style pictorial timeline with seven numbered safety workflow steps, real BinZ imagery, scan/status/recovery components and BinZ safety responses.
 - Preserved the original CO2 tracking form and charts in the Impact section.
 - Rebuilt `dist` and copied runtime image assets.
 
