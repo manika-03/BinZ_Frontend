@@ -67,6 +67,7 @@
 - Safety guidance content check: the Learn page includes a new `Safety guidance` section with pictorial cards for battery heat/leakage, CRT/display risk, device traceability loss and unsafe dismantling.
 - BinZ safety promise check: the section connects hazards to the existing product flow: doorstep pickup, e-waste tickets, facility tracking, FAQ support, responsible recycling updates and report-ready proof.
 - Safety guidance responsive check: desktop and mobile headless Chrome captures were reviewed; the section keeps the existing Learn page aesthetic and stacks into one column on narrow screens.
+- Safety guidance placement check: the section now appears below the Refurbish/Rebuild/Reuse cards and the green `Small choices add up` next-step strip.
 - Browser console errors checked: none.
 
 **Follow-up Polish**
@@ -98,6 +99,7 @@
 - Moved the `How BinZ works` demonstration section to the top of the tracker page, before the e-waste tracking status content.
 - Increased the `How BinZ works` section scale with more padding, a wider video column, a larger video frame, and slightly larger copy.
 - Added a Safety Guidance section to the Learn page with pictorial hazard cards and a BinZ safe-flow panel.
+- Moved the Safety Guidance section below the Refurbish/Rebuild/Reuse learning cards and next-step strip.
 - Preserved the original CO2 tracking form and charts in the Impact section.
 - Rebuilt `dist` and copied runtime image assets.
 

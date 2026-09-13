@@ -3,7 +3,6 @@ import {
   ArrowLeft,
   BatteryWarning,
   FileCheck2,
-  HardHat,
   Laptop,
   MailCheck,
   MonitorX,
@@ -66,6 +65,53 @@ const binzSafetyFlow = [
   { icon: FileCheck2, label: 'Report ready', text: 'The recycling report button is prepared for backend PDF download.' },
 ];
 
+function SafetyGuidance() {
+  return (
+    <section className="safety-guidance" aria-labelledby="safety-guidance-title">
+      <div className="safety-guidance-head">
+        <p className="eyebrow">Safety guidance</p>
+        <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
+        <p>
+          E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
+          BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
+          FAQ support, responsible recycling updates and report-ready proof.
+        </p>
+      </div>
+
+      <div className="safety-guidance-layout">
+        <div className="hazard-grid" aria-label="Common e-waste safety hazards">
+          {safetyHazards.map(({ icon: Icon, title, text }) => (
+            <article className="hazard-card" key={title}>
+              <span className="hazard-icon"><Icon size={28} aria-hidden="true" /></span>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <aside className="binz-safety-card" aria-label="How BinZ supports safer e-waste handling">
+          <span className="binz-safety-icon"><ShieldCheck size={34} aria-hidden="true" /></span>
+          <p className="eyebrow">BinZ safe flow</p>
+          <h3>Built to keep the process guided, visible and accountable.</h3>
+          <div className="safety-flow-list">
+            {binzSafetyFlow.map(({ icon: Icon, label, text }) => (
+              <div className="safety-flow-item" key={label}>
+                <span><Icon size={19} aria-hidden="true" /></span>
+                <div>
+                  <strong>{label}</strong>
+                  <p>{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </section>
+  );
+}
+
 export default function LearnPage() {
   return (
     <main className="learn-page">
@@ -78,49 +124,6 @@ export default function LearnPage() {
         <p>
           Three practical habits can keep valuable electronics in use, reduce waste, and help build a cleaner future.
         </p>
-      </section>
-
-      <section className="safety-guidance" aria-labelledby="safety-guidance-title">
-        <div className="safety-guidance-head">
-          <p className="eyebrow">Safety guidance</p>
-          <h2 id="safety-guidance-title">Handle e-waste with the right care from pickup to recovery.</h2>
-          <p>
-            E-waste becomes risky when batteries, CRT displays, damaged devices and loose parts are handled casually.
-            BinZ is designed to guide safer collection with doorstep pickup, e-waste tickets, facility tracking,
-            FAQ support, responsible recycling updates and report-ready proof.
-          </p>
-        </div>
-
-        <div className="safety-guidance-layout">
-          <div className="hazard-grid" aria-label="Common e-waste safety hazards">
-            {safetyHazards.map(({ icon: Icon, title, text }) => (
-              <article className="hazard-card" key={title}>
-                <span className="hazard-icon"><Icon size={28} aria-hidden="true" /></span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <aside className="binz-safety-card" aria-label="How BinZ supports safer e-waste handling">
-            <span className="binz-safety-icon"><ShieldCheck size={34} aria-hidden="true" /></span>
-            <p className="eyebrow">BinZ safe flow</p>
-            <h3>Built to keep the process guided, visible and accountable.</h3>
-            <div className="safety-flow-list">
-              {binzSafetyFlow.map(({ icon: Icon, label, text }) => (
-                <div className="safety-flow-item" key={label}>
-                  <span><Icon size={19} aria-hidden="true" /></span>
-                  <div>
-                    <strong>{label}</strong>
-                    <p>{text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
       </section>
 
       <section className="principles-grid" aria-label="The three circular technology principles">
@@ -141,6 +144,7 @@ export default function LearnPage() {
         </div>
         <a className="button primary" href="#scrap">Find a better next step</a>
       </section>
+      <SafetyGuidance />
     </main>
   );
 }
